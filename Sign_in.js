@@ -9,7 +9,7 @@
 // console.log(JSON.stringify({ "user": { "email": `${email.value}`, "password": `${password.value}` } }));
 //console.log(email.value)
 const verifyUser = (email, password) => {
-  fetch("http://localhost:3000/api/v1/users/sessions", {
+  fetch("https://b-payments.herokuapp.com/api/v1/users/sessions", {
     method: "POST",
     headers: {
     "Content-Type": "application/json"
