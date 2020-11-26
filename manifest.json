@@ -1,0 +1,20 @@
+{
+  "name": "B-payments",
+  "version": "1.0",
+  "description": "Transfer your crypto whenever you want and for free!",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": ["activeTab"],
+  "icons": {
+      "16": "./images/logo-BPAYMENTS_B.png",
+      "32": "./images/logo-BPAYMENTS_B.png",
+      "48": "./images/logo-BPAYMENTS_B.png",
+      "128": "./images/logo-BPAYMENTS_B.png"
+  },
+  "browser_action" : {
+    "default_popup": "Bpayments_signin_popup.html",
+    "default_title": "Open when opportunity to pay with bitcoin appear!"
+  },
+  "manifest_version": 2
+}
