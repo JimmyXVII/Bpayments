@@ -5,7 +5,10 @@
   "background": {
     "scripts": ["background.js"]
   },
-  "permissions": ["activeTab"],
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
   "icons": {
       "16": "./images/logo-BPAYMENTS_LETTER_BLACK.png",
       "32": "./images/logo-BPAYMENTS_LETTER_BLACK.png",
