@@ -5,7 +5,6 @@ body {
   font-family: 'Red Hat Display', sans-serif;
   font-size: 20px;
 }
-
 .container{
   width: 100%;
   height: 100%;
@@ -15,33 +14,13 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .navbar {
   display: flex;
   justify-content: center;
 }
-
 img {
   width: 200px;
-
 }
-
-#logo {
-  width: 113px;
-  margin : 0;
-}
-
-#logo-coinbase {
-  width: 100px;
-  margin : 0;
-}
-
-form {
-  display: inline;
-  width: 200px;
-  justify-content: center;
-}
-
 #submit_button {
   width: 200px;
   margin-top: 20px;
@@ -50,20 +29,11 @@ form {
   padding: 8px 24px;
   color: white;
 }
-
-#submit_button::focus {
-  border-color: none;
+.form {
+  display: inline;
+  width: 200px;
+  justify-content: center;
 }
-
-
- .btn-primary {
-  background-color: #0469A2;
-  width: 300px;
-  height: 50px;
-  margin-bottom: 10px;
- }
-
-.fab {
-  color: white;
+#inlineFormCustomSelectPref{
+  width:70px;
 }
-
