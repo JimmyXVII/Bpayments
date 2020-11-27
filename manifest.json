@@ -7,10 +7,10 @@
   },
   "permissions": ["activeTab"],
   "icons": {
-      "16": "./images/logo-BPAYMENTS_B.png",
-      "32": "./images/logo-BPAYMENTS_B.png",
-      "48": "./images/logo-BPAYMENTS_B.png",
-      "128": "./images/logo-BPAYMENTS_B.png"
+      "16": "./images/logo-BPAYMENTS_LETTER_BLACK.png",
+      "32": "./images/logo-BPAYMENTS_LETTER_BLACK.png",
+      "48": "./images/logo-BPAYMENTS_LETTER_BLACK.png",
+      "128": "./images/logo-BPAYMENTS_LETTER_BLACK.png"
   },
   "browser_action" : {
     "default_popup": "Bpayments_signin_popup.html",
