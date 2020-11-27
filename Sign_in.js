@@ -18,16 +18,21 @@ const verifyUser = (email, password) => {
   })
     .then(response => response.json())
     .then((data) => {
-      console.log(data); // Look at local_names.default
-    });
+      if (res.status ==! 200) {
+        // window.location.replace('./Bpayments_signin_popup.html');
+        console.log("not ok");
+      } else {
+        chrome.storage.local.set({email: data.user.email, token: data.user.token}, function() {
+        console.log("ok");
+          });
+        }
+      });
 };
 console.log("hello")
 const form = document.querySelector(".form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const email = event.currentTarget.querySelector("#exampleInputEmail1").value;
-  console.log(email);
   const password = event.currentTarget.querySelector("#exampleInputPassword1").value;
-  console.log(password);
   verifyUser(email,password)
 }); // this is the where we will need to call the api from our app
