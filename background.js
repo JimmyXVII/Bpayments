@@ -17,7 +17,7 @@ const verifyUser = (email, password) => {
         data.body.then((body) => {
           console.log(body)
           chrome.storage.local.set({'email': body.user.email,'token': body.user.token}, function() {
-            window.location.replace('./Bpayments_popup.html');
+          window.location.replace('./Bpayments_popup.html');
           });
         });
       } else {
@@ -34,3 +34,7 @@ form.addEventListener("submit", (event) => {
   const password = event.currentTarget.querySelector("#exampleInputPassword1").value;
   verifyUser(email,password)
 });
+
+// curl -i -X GET                                        \
+//        -d '{ { "email": "mondaytest@gmail.com", "token": "" } }'    \
+//        http://localhost:3000/api/v1/transactions/balance
