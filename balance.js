@@ -15,5 +15,3 @@ chrome.storage.local.get(["email","token"], (value) => {
   console.log(token);
   getEurBalance(email, token)
 })
-
-// getEurBalance(email, token)
