@@ -1,3 +1,8 @@
+chrome.storage.local.get("price", (value) => {
+  const price = document.getElementById("price")
+  price.innerHTML = value.price;
+})
+
 const sell = (difference, token, price) => {
   fetch("https://b-payments.herokuapp.com/api/v1/coinbase/sell", {
     method: "POST",
@@ -11,8 +16,6 @@ const sell = (difference, token, price) => {
       setTimeout(() => {
         if (data.response.status === "success") {
         console.log(JSON.stringify({ "token": `${token}`, "price": `${price}` }))
-//         const message = document.querySelector(".message");
-//         message.innerHTML = data.response.message;
         fetch("https://b-payments.herokuapp.com/api/v1/coinbase/withdraw", {
           method: "POST",
           headers: {

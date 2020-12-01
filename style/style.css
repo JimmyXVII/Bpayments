@@ -18,7 +18,6 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -48,7 +47,7 @@ form {
 }
 
 .form-control:focus {
-  border-color: black !important;
+  border-color: rgba(0, 0, 0, 0.452) !important;
   box-shadow: none !important;
 }
 

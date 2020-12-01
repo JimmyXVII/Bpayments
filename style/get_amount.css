@@ -3,6 +3,59 @@
   width: 200px;
   justify-content: center;
 }
+
 #inlineFormCustomSelectPref{
   width:70px;
+}
+
+.account-card {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.balance {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 0;
+  z-index: 2;
+}
+
+span {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  z-index: 2;
+}
+
+.account-card svg {
+  width: 150px;
+  height: 150px;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.account-card circle {
+  fill: rgba(255, 255, 255, 0.753);
+  stroke: white;
+  stroke-width: 4;
+  stroke-dasharray: 422, 0;
+  transition: all 1.5s linear;
+  z-index: 1;
+}
+
+.account-card:hover {
+  transition-duration: 1s;
+}
+
+.account-card:hover circle {
+  stroke-width: 5;
+  stroke-dasharray: 15, 310;
+  stroke-dashoffset: 48;
+  transition: all 2.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
