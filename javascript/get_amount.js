@@ -4,9 +4,9 @@ const getBalances = (email, token) => {
     .then((data) => {
       console.log(data)
       const eur_balance = document.querySelector(".eur-balance");
-      eur_balance.innerHTML= data.user.eur_balance
+      eur_balance.innerHTML= data.user.eur_balance.amount
       const btc_balance = document.querySelector(".btc-balance");
-      btc_balance.innerHTML = data.user.btc_balance
+      btc_balance.innerHTML = data.user.btc_balance.amount
     });
 };
 chrome.storage.local.get(["email","token"], (value) => {
