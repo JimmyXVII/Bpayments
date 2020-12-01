@@ -21,7 +21,7 @@ body {
 img {
   width: 200px;
 }
-.black_btn {
+#submit_button {
   width: 200px;
   margin-top: 20px;
   background-color: black;
@@ -37,3 +37,4 @@ img {
 #inlineFormCustomSelectPref{
   width:70px;
 }
+
