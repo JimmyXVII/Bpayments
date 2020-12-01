@@ -1,5 +1,5 @@
 const getEurBalance = (email, token) => {
-  fetch(`https://b-payments.herokuapp.com/api/v1/transactions/balance?email=${email}&token=${token}`)
+  fetch(`https://b-payments.herokuapp.com/api/v1/coinbase/balance?email=${email}&token=${token}`)
     .then(response => response.json() )
     .then((data) => {
       console.log(data)
@@ -28,7 +28,7 @@ submit.addEventListener('click', event => {
     if (difference >= 0) {
       window.location.replace('../popups/transfer_only.html');
     } else {
-      window.location.replace('../popups/sell_and_transfer.html');
+      window.location.replace('../popups/sell_and_withdraw.html');
     }
   });
 });
