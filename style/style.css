@@ -1,3 +1,8 @@
+@import url(./sign_in.css);
+@import url(./get_amount.css);
+@import url(./sell_and_withdraw.css);
+@import url(./transfer_only.css);
+
 body {
   width: 370px;
   height: 400px;
@@ -21,19 +26,17 @@ body {
 img {
   width: 200px;
 }
-.black_btn {
+form {
+  display: inline;
+  width: 200px;
+  justify-content: center;
+}
+
+.black-btn {
   width: 200px;
   margin-top: 20px;
   background-color: black;
   border: none;
   padding: 8px 24px;
   color: white;
-}
-.form {
-  display: inline;
-  width: 200px;
-  justify-content: center;
-}
-#inlineFormCustomSelectPref{
-  width:70px;
 }
