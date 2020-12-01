@@ -1,19 +1,3 @@
-// const withdraw = (token, price) => {
-//   fetch("https://b-payments.herokuapp.com/api/v1/coinbase/withdraw", {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify({"token": `${token}`, "price": `${price}`})
-//       })
-//         .then(response => response.json())
-//         .then(data => {
-//           const message = document.querySelector(".message");
-//           message.innerHTML = data.response.message;
-//         })
-// };
-
-
 const sell = (difference, token, price) => {
   fetch("https://b-payments.herokuapp.com/api/v1/coinbase/sell", {
     method: "POST",
