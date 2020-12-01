@@ -23,13 +23,8 @@ const sell = (difference, token, price) => {
           .then(response => response.json())
           .then((data) => {
             console.log(data)
-            // const message = document.querySelector(".message");
-            // message.innerHTML = data.response.message;
           })
         } else {
-        console.log("unsuccess");
-        message = document.querySelector(".message");
-        message.innerHTML = data.response.message;
       }
       }, 5000);
   });
