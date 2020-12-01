@@ -1,10 +1,12 @@
-const getEurBalance = (email, token) => {
+const getBalances = (email, token) => {
   fetch(`https://b-payments.herokuapp.com/api/v1/coinbase/balance?email=${email}&token=${token}`)
     .then(response => response.json() )
     .then((data) => {
       console.log(data)
       const eur_balance = document.querySelector(".eur-balance");
-      eur_balance.innerHTML= data.user.balance.amount
+      eur_balance.innerHTML= data.user.eur_balance
+      const btc_balance = document.querySelector(".btc-balance");
+      btc_balance.innerHTML = data.user.btc_balance
     });
 };
 chrome.storage.local.get(["email","token"], (value) => {
@@ -12,7 +14,7 @@ chrome.storage.local.get(["email","token"], (value) => {
   const token = value.token;
   console.log(email);
   console.log(token);
-  getEurBalance(email, token)
+  getBalances(email, token)
 })
 
 
