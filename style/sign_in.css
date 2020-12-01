@@ -27,7 +27,8 @@ form {
   width: 200px;
   justify-content: center;
 }
-#submit_button {
+
+.black-btn {
   width: 200px;
   margin-top: 20px;
   background-color: black;
