@@ -37,3 +37,16 @@ img {
 #inlineFormCustomSelectPref{
   width:70px;
 }
+
+.eur-balance{
+  font-family: 'Bebas Neue', cursive;
+}
+.btc-balance{
+  font-family: 'Bebas Neue', cursive;
+}
+
+.border-dark{
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 70px;
+
+}

@@ -5,8 +5,12 @@ const getBalances = (email, token) => {
       console.log(data)
       const eur_balance = document.querySelector(".eur-balance");
       eur_balance.innerHTML= data.user.eur_balance.amount
+      const eur_balance_currency = document.querySelector(".eur-balance-currency");
+      eur_balance_currency.innerHTML = data.user.eur_balance.currency
       const btc_balance = document.querySelector(".btc-balance");
       btc_balance.innerHTML = data.user.btc_balance.amount
+      const btc_balance_currency = document.querySelector(".btc-balance-currency");
+      btc_balance_currency.innerHTML = data.user.btc_balance.currency
     });
 };
 chrome.storage.local.get(["email","token"], (value) => {
