@@ -21,7 +21,8 @@
   },
   "content_scripts": [
     {
-    "matches": ["*://*.boulanger.com/*deliverySelectionValidate"],
+    // "matches": ["*://*.boulanger.com/*deliverySelectionValidate"],
+    "matches": ["*://*.boulanger.com/checkout/payment"],
     "js": ["./javascript/contentscript.js"]
     }
   ],

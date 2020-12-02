@@ -45,7 +45,7 @@ chrome.storage.local.get(["email","token","webprice"], (value) => {
 
 const submit = document.querySelector("#submit_button")
 submit.addEventListener('click', event => {
-  const price = parseInt(document.querySelector("#amount").value,10);
+  const price = parseFloat(document.querySelector("#amount").value);
   console.log(price);
   const eur_balance = parseInt(document.querySelector(".eur-balance").innerHTML, 10);
   console.log(eur_balance);
