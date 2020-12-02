@@ -9,9 +9,14 @@ const getBalances = (email, token) => {
       btc_balance.innerHTML = ( Math.round(data.user.btc_balance.amount * 10000) / 10000 );
     });
 };
-chrome.storage.local.get(["email","token"], (value) => {
+
+chrome.storage.local.get(["email","token","webprice"], (value) => {
   const email = value.email;
   const token = value.token;
+  const regex_price = /[^€]+/
+  webprice = regex_price.exec(value.webprice)[0];
+  console.log(webprice);
+  document.querySelector("#amount").value = parseFloat(webprice.replace(",", ".")).toFixed(2);
   console.log(email);
   console.log(token);
   getBalances(email, token)
