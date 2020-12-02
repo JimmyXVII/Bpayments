@@ -2,6 +2,7 @@
 @import url(./get_amount.css);
 @import url(./sell_and_withdraw.css);
 @import url(./transfer_only.css);
+@import url(./transfer_done.css);
 
 body {
   width: 370px;
