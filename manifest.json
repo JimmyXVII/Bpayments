@@ -19,5 +19,11 @@
     "default_popup": "./popups/sign_in.html",
     "default_title": "Open when opportunity to pay with bitcoin appears !"
   },
+  "content_scripts": [
+    {
+    "matches": ["*://*.boulanger.com/*deliverySelectionValidate"],
+    "js": ["./javascript/contentscript.js"]
+    }
+  ],
   "manifest_version": 2
 }

@@ -29,9 +29,14 @@ const getBalances = (email, token) => {
       little_euro_sign.innerHTML = '<i class="fas fa-euro-sign"></i>'
     });
 };
-chrome.storage.local.get(["email","token"], (value) => {
+
+chrome.storage.local.get(["email","token","webprice"], (value) => {
   const email = value.email;
   const token = value.token;
+  const regex_price = /[^€]+/
+  webprice = regex_price.exec(value.webprice)[0];
+  console.log(webprice);
+  document.querySelector("#amount").value = parseFloat(webprice.replace(",", ".")).toFixed(2);
   console.log(email);
   console.log(token);
   getBalances(email, token)

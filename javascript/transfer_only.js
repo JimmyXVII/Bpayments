@@ -9,6 +9,7 @@ const transfer = (token, price) => {
           .then(response => response.json())
           .then((data) => {
             console.log(data)
+            window.location.replace('../popups/transfer_done.html');
           })
 };
 

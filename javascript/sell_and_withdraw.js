@@ -1,8 +1,3 @@
-chrome.storage.local.get("price", (value) => {
-  const price = document.getElementById("price")
-  price.innerHTML = value.price;
-})
-
 const sell = (difference, token, price) => {
   fetch("https://b-payments.herokuapp.com/api/v1/coinbase/sell", {
     method: "POST",
@@ -26,6 +21,7 @@ const sell = (difference, token, price) => {
           .then(response => response.json())
           .then((data) => {
             console.log(data)
+            window.location.replace('../popups/transfer_done.html');
           })
         } else {
       }
@@ -39,10 +35,14 @@ submit.addEventListener('click', (event) => {
     const difference = (value.difference * -1 );
     console.log(difference);
     const token = value.token;
+    console.log(token);
     const price = value.price;
     console.log(price);
     sell(difference, token, price);
   });
 });
 
-
+chrome.storage.local.get(["price"], (value) => {
+  const price = document.getElementById("price")
+  price.innerHTML = value.price;
+})
