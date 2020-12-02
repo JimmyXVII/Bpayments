@@ -7,6 +7,10 @@ const getBalances = (email, token) => {
       eur_balance.innerHTML= Math.round(data.user.eur_balance.amount);
       const btc_balance = document.querySelector(".btc-balance");
       btc_balance.innerHTML = ( Math.round(data.user.btc_balance.amount * 10000) / 10000 );
+      const svg = document.querySelectorAll('svg');
+      const circle = document.querySelectorAll('circle');
+      svg.classList.add("circle-shape");
+      circle.classList.add("white-circle");
     });
 };
 chrome.storage.local.get(["email","token"], (value) => {

@@ -30,9 +30,10 @@ span {
   font-weight: 700;
   margin: 0;
   z-index: 2;
+  font-family: 'Red Hat Text';
 }
 
-.account-card svg {
+.circle-shape {
   width: 150px;
   height: 150px;
   left: 0;
@@ -40,8 +41,8 @@ span {
   top: 0;
 }
 
-.account-card circle {
-  fill: rgba(255, 255, 255, 0.753);
+.white-circle {
+  fill: rgba(255, 255, 255, 0.653);
   stroke: white;
   stroke-width: 4;
   stroke-dasharray: 422, 0;
@@ -53,7 +54,7 @@ span {
   transition-duration: 1s;
 }
 
-.account-card:hover circle {
+.white-circle:hover {
   stroke-width: 5;
   stroke-dasharray: 15, 310;
   stroke-dashoffset: 48;
