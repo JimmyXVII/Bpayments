@@ -11,11 +11,26 @@
 </head>
 <body>
   <div class= "navbar">
-    <img src="../images/logo-BPAYMENTS_color.png" alt="">
+    <img src="../images/logo-black.svg" alt="">
   </div>
-  <p class="eur-balance"></p>
-  <p class="btc-balance"></p>
-  <div class = "container" id="container">
+  <div class = "container justify-content-center">
+    <div class="d-flex justify-content-between">
+      <div class="account-card">
+        <svg>
+          <circle  cx="75" cy="75" r="60"  fill="none" width="100%" height="100%"/>
+        </svg>
+        <p class="balance eur-balance"> </p><span>€</span>
+      </div>
+      <div class="account-card">
+        <svg>
+          <circle  cx="75" cy="75" r="60"  fill="none" width="100%" height="100%"/>
+        </svg>
+        <div class="d-flex flex-column text-center">
+          <p class="balance btc-balance"></p>
+          <span>BTC</span>
+        </div>
+      </div>
+    </div>
     <div class="form">
       <label for="amount">What amount do you want to transfer ?</label>
       <div class ="d-flex">

@@ -11,11 +11,16 @@
 </head>
 <body>
   <div class="navbar">
-    <img src="../images/logo-BPAYMENTS_color.png" alt="">
+    <img src="../images/logo-black.svg" alt="">
   </div>
-  <p class="message"></p>
-  <div class = "container" id="container">
-    <button id="sell" class="black-btn">Submit</button>
+  <div class = "container">
+    <div id="loader-2">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <p>Selling <span id="btc_amount_sold"></span> BTC in order to transfer <span id="price"></span> € to your Paypal account</p>
+    <button id="sell" class="black-btn">Proceed</button>
   </div>
   <script src="../javascript/sell_and_withdraw.js"></script>
 </body>
