@@ -4,13 +4,29 @@ const getBalances = (email, token) => {
     .then((data) => {
       console.log(data)
       const eur_balance = document.querySelector(".eur-balance");
-      eur_balance.innerHTML= Math.round(data.user.eur_balance.amount);
+      eur_balance.innerHTML= Math.round(data.user.eur_balance.EUR);
       const btc_balance = document.querySelector(".btc-balance");
-      btc_balance.innerHTML = ( Math.round(data.user.btc_balance.amount * 10000) / 10000 );
-      const svg = document.querySelectorAll('svg');
-      const circle = document.querySelectorAll('circle');
-      svg.classList.add("circle-shape");
-      circle.classList.add("white-circle");
+      btc_balance.innerHTML = ( Math.round(data.user.btc_balance.BTC * 10000) / 10000 );
+      const btc_in_eur_balance = document.getElementById("btc-euro-span");
+      btc_in_eur_balance.innerHTML = data.user.btc_balance.EUR
+      const svgs = document.querySelectorAll('svg');
+      const circles = document.querySelectorAll('circle');
+      svgs.forEach((svg) => {
+        svg.classList.add("circle-shape");
+      });
+      circles.forEach((circle) => {
+        circle.classList.add("white-circle");
+        circle.classList.add("white-circle-starts");
+        setTimeout(() => {
+          circle.classList.add("white-circle-ends");
+        }, 1000);
+      });
+      const euro_sign = document.getElementById("euro-span")
+      euro_sign.innerHTML = '<i class="fas fa-euro-sign"></i>'
+      const btc_sign = document.getElementById("btc-span")
+      btc_sign.innerHTML = '<i class="fab fa-btc"></i>'
+      const little_euro_sign = document.getElementById("little-euro-span")
+      little_euro_sign.innerHTML = '<i class="fas fa-euro-sign"></i>'
     });
 };
 chrome.storage.local.get(["email","token"], (value) => {
