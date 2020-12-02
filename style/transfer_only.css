@@ -1,17 +1,36 @@
-#submit_button {
-  width: 200px;
-  margin-top: 20px;
-  background-color: black;
-  border: none;
-  padding: 8px 24px;
-  color: white;
-}
-.form {
-  display: inline;
-  width: 200px;
-  justify-content: center;
-}
-#inlineFormCustomSelectPref{
-  width:70px;
+.little-circle {
+  width: 80px;
+  height: 80px;
+  stroke-width: 2;
+  left: 0;
+  position: absolute;
+  top: 0;
 }
 
+.little-circle-card {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.steps {
+  width: 280px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.steps p {
+  font-size: 20px;
+  font-family: 'Red Hat Text';
+  z-index: 2;
+  margin: 0;
+}
+
+.steps circle {
+  fill: rgba(255, 255, 255, 0.653);
+  stroke: white;
+  z-index: 1;
+}
