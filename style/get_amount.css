@@ -8,6 +8,11 @@
   width:70px;
 }
 
+h5 {
+  font-family: 'Red Hat Text';
+  font-weight: 700;
+}
+
 .account-card {
   width: 150px;
   height: 150px;
@@ -30,9 +35,10 @@ span {
   font-weight: 700;
   margin: 0;
   z-index: 2;
+  font-family: 'Red Hat Text';
 }
 
-.account-card svg {
+.circle-shape {
   width: 150px;
   height: 150px;
   left: 0;
@@ -40,22 +46,38 @@ span {
   top: 0;
 }
 
-.account-card circle {
-  fill: rgba(255, 255, 255, 0.753);
+.white-circle {
+  fill: rgba(255, 255, 255, 0.653);
   stroke: white;
-  stroke-width: 4;
+  /* stroke-width: 4; */
   stroke-dasharray: 422, 0;
-  transition: all 1.5s linear;
+  /* transition: all 1.5s linear; */
   z-index: 1;
-}
-
-.account-card:hover {
+  stroke-width: 5;
+  stroke-dashoffset: 48;
+  transition: all 2.35s linear;
   transition-duration: 1s;
 }
 
-.account-card:hover circle {
-  stroke-width: 5;
+/* cubic-bezier(0.19, 1, 0.22, 1) */
+
+.white-circle-starts {
+  stroke-dasharray: 75, 310;
+}
+
+.white-circle-ends {
+  stroke-dasharray: 422, 0;
+}
+
+
+.white-circle:hover {
   stroke-dasharray: 15, 310;
-  stroke-dashoffset: 48;
-  transition: all 2.35s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#little-euro span {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.719);
+  margin: 0;
+  z-index: 2;
+  font-family: 'Red Hat Text';
 }
