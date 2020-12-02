@@ -1,3 +1,5 @@
+
+
 const sell = (difference, token, price) => {
   fetch("https://b-payments.herokuapp.com/api/v1/coinbase/sell", {
     method: "POST",
