@@ -12,7 +12,7 @@ h5 {
   font-family: 'Red Hat Display' !important;
   font-size: 30px !important;
   /* font-weight: 700 !important; */
-  text-align: left !important;
+  /* align-self: baseline; */
 }
 
 #header-span {
@@ -68,6 +68,12 @@ h5 {
   font-weight: 700;
   margin: 0;
   margin-right: 4px;
+}
+
+#egal-sign-circle {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
 }
 
 #btc-span-small {
