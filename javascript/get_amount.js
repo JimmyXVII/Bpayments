@@ -3,6 +3,7 @@
 // 1) récupération des balances du user via API
 const getBalances = (email, token) => {
   fetch(`https://b-payments.herokuapp.com/api/v1/coinbase/balance?email=${email}&token=${token}`)
+  //fetch(`http://localhost:3000/api/v1/coinbase/balance?email=${email}&token=${token}`)
     .then(response => response.json() )
     .then((data) => {
       const btc_balance = document.querySelector(".btc-balance");
@@ -73,10 +74,9 @@ input.addEventListener("keyup", (event) => {
 // fonction sell qui récupere le prix pour faire la vente des bitcoins et envoyer l'url à l'app avant de retirer les fonds en euro du compote coinbase vers paypal
 const sell = (token, price, url) => {
   fetch("https://b-payments.herokuapp.com/api/v1/coinbase/sell", {
+  //fetch("http://localhost:3000/api/v1/coinbase/sell", {
     method: "POST",
-    headers: {
-    "Content-Type": "application/json"
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       "difference": `${price}`,
       "token": `${token}`,
@@ -85,26 +85,26 @@ const sell = (token, price, url) => {
   })
     .then(response => response.json())
     .then((data) => {
-      console.log(data);
       setTimeout(() => {
         if (data.response.status === "success") {
-        console.log(JSON.stringify({ "token": `${token}`, "price": `${price}` }))
-        fetch("https://b-payments.herokuapp.com/api/v1/coinbase/withdraw", {
-          method: "POST",
-          headers: {
-          "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ "token": `${token}`, "price": `${price}` })
-        })
+          console.log("Price")
+          console.log(price)
+          console.log("Token")
+          console.log(token)          
+          fetch("https://b-payments.herokuapp.com/api/v1/coinbase/withdraw", {
+          //fetch("http://localhost:3000/api/v1/coinbase/withdraw", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ "token": token, "price": price })
+          })
           .then(response => response.json())
           .then((data) => {
-            console.log(data)
-            window.location.replace('../popups/sell_and_withdraw.html');
+            // window.location.replace('../popups/sell_and_withdraw.html');
           })
         } else {
-      }
+        }
       }, 5000);
-  });
+    });
 };
 
 // bouton submit qui est censé demarrer la fonction sell
