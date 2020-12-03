@@ -16,7 +16,7 @@
       "128": "./images/logo-BPAYMENTS_LETTER_BLACK.png"
   },
   "browser_action" : {
-    "default_popup": "./popups/sell_and_withdraw.html",
+    "default_popup": "./popups/get_amount.html",
     "default_title": "Open when opportunity to pay with bitcoin appears !"
   },
   "content_scripts": [
