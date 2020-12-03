@@ -1,5 +1,6 @@
 const verifyUser = (email, password) => {
   fetch("https://b-payments.herokuapp.com/api/v1/users/sessions", {
+  //fetch("http://localhost:3000/api/v1/users/sessions", {
     method: "POST",
     headers: {
     "Content-Type": "application/json"
