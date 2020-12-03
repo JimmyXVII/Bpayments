@@ -87,11 +87,7 @@ const sell = (token, price, url) => {
     .then(response => response.json())
     .then((data) => {
       setTimeout(() => {
-        if (data.response.status === "success") {
-          console.log("Price")
-          console.log(price)
-          console.log("Token")
-          console.log(token)          
+        if (data.response.status === "success") {         
           fetch("https://b-payments.herokuapp.com/api/v1/coinbase/withdraw", {
           //fetch("http://localhost:3000/api/v1/coinbase/withdraw", {
             method: "POST",
