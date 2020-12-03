@@ -22,7 +22,7 @@
   "content_scripts": [
     {
     // "matches": ["*://*.boulanger.com/*deliverySelectionValidate"],
-    "matches": ["*://*.boulanger.com/checkout/payment"],
+    "matches": ["*://*.laredoute.fr/shoppingbasket*"],
     "js": ["./javascript/contentscript.js"]
     }
   ],

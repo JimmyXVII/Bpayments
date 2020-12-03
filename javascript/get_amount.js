@@ -46,6 +46,7 @@ const convert = (price) => {
     const rate = value.rate;
     console.log(rate)
     const bitcoinPrice = price / rate;
+    chrome.storage.local.set( {'bitcoinPrice': bitcoinPrice },() => {});
     console.log(bitcoinPrice);
     const convert = document.querySelector(".price-in-btc-balance");
     convert.innerHTML = (bitcoinPrice).toFixed(5);
@@ -99,7 +100,7 @@ const sell = (token, price, url) => {
           })
           .then(response => response.json())
           .then((data) => {
-            window.location.replace('../popups/sell_and_withdraw.html');
+            window.location.replace('../popups/payment.html');
           })
         } else {
         }
