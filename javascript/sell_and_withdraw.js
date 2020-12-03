@@ -14,6 +14,7 @@ const sell = (token, price, url) => {
   })
     .then(response => response.json())
     .then((data) => {
+      console.log(data);
       setTimeout(() => {
         if (data.response.status === "success") {
         console.log(JSON.stringify({ "token": `${token}`, "price": `${price}` }))
@@ -27,7 +28,7 @@ const sell = (token, price, url) => {
           .then(response => response.json())
           .then((data) => {
             console.log(data)
-            window.location.replace('../popups/transfer_done.html');
+            window.location.replace('../popups/sell_and_withdraw.html');
           })
         } else {
       }
@@ -35,17 +36,6 @@ const sell = (token, price, url) => {
   });
 };
 
-const submit = document.querySelector("#sell");
-submit.addEventListener('click', (event) => {
-  chrome.storage.local.get(["token", "price", "url"], (value) => {
-    const token = value.token;
-    console.log(token);
-    const price = value.price;
-    console.log(price);
-    const url = value.url;
-    sell(token, price, url);
-  });
-});
 
 chrome.storage.local.get(["price"], (value) => {
   const price = document.getElementById("price")

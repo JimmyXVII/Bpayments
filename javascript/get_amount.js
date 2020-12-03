@@ -1,6 +1,6 @@
 
 
-// récupération des balances du user
+// 1) récupération des balances du user via API
 const getBalances = (email, token) => {
   fetch(`https://b-payments.herokuapp.com/api/v1/coinbase/balance?email=${email}&token=${token}`)
     .then(response => response.json() )
@@ -28,6 +28,8 @@ const getBalances = (email, token) => {
     });
 };
 
+
+// 2) récupération du rate via API et set dans le local
 fetch("https://api.coinbase.com/v2/prices/BTC-EUR/sell")
 .then(response => response.json() )
 .then((data) => {
@@ -37,6 +39,7 @@ fetch("https://api.coinbase.com/v2/prices/BTC-EUR/sell")
   })
 });
 
+// 3) Fonction de conversion du prix en euro -> bitcoin
 const convert = (price) => {
   chrome.storage.local.get(['rate'], (value) => {
     const rate = value.rate;
@@ -48,26 +51,72 @@ const convert = (price) => {
   });
 };
 
-
+// 3) appel de la fonction convert pour prix en euro -> bitcoin et  appel de la fonction get balances pour display les balances
 chrome.storage.local.get(["email","token","webprice"], (value) => {
   const email = value.email;
   const token = value.token;
-  const regex_price = /[^€]+/
-  const stringWebPrice = regex_price.exec(value.webprice)[0];
+  const regexPrice = /[^€]+/
+  const stringWebPrice = regexPrice.exec(value.webprice)[0];
   const integerWebPrice = parseFloat(stringWebPrice.replace(",", ".")).toFixed(2);
   console.log(integerWebPrice);
   convert(integerWebPrice);
   document.querySelector("#amount").value = integerWebPrice;
   getBalances(email, token)
 })
+const input = document.querySelector("#amount");
+input.addEventListener("keyup", (event) => {
+  const inputPrice = document.querySelector("#amount").value;
+  convert(inputPrice);
+})
 
 
-const submit = document.querySelector("#submit_button")
-submit.addEventListener('click', event => {
-  const price = parseFloat(document.querySelector("#amount").value);
-  console.log(price)
-  chrome.storage.local.set({'price': price}, function() {
-    window.location.replace('../popups/sell_and_withdraw.html');
+// fonction sell qui récupere le prix pour faire la vente des bitcoins et envoyer l'url à l'app avant de retirer les fonds en euro du compote coinbase vers paypal
+const sell = (token, price, url) => {
+  fetch("https://b-payments.herokuapp.com/api/v1/coinbase/sell", {
+    method: "POST",
+    headers: {
+    "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      "difference": `${price}`,
+      "token": `${token}`,
+      "url": `${url}`
+    })
+  })
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data);
+      setTimeout(() => {
+        if (data.response.status === "success") {
+        console.log(JSON.stringify({ "token": `${token}`, "price": `${price}` }))
+        fetch("https://b-payments.herokuapp.com/api/v1/coinbase/withdraw", {
+          method: "POST",
+          headers: {
+          "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ "token": `${token}`, "price": `${price}` })
+        })
+          .then(response => response.json())
+          .then((data) => {
+            console.log(data)
+            window.location.replace('../popups/sell_and_withdraw.html');
+          })
+        } else {
+      }
+      }, 5000);
+  });
+};
+
+// bouton submit qui est censé demarrer la fonction sell
+const submit = document.querySelector("#submit_button");
+submit.addEventListener('click', (event) => {
+  chrome.storage.local.get(["token", "url"], (value) => {
+    const token = value.token;
+    console.log(token);
+    const price = parseFloat(document.querySelector("#amount").value);
+    console.log(price);
+    const url = value.url;
+    sell(token, price, url);
   });
 });
 
