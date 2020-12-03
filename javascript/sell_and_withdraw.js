@@ -16,7 +16,7 @@ chrome.storage.local.get(["price", "bitcoinPrice"], (value) => {
   const price = document.getElementById("price");
   setTimeout(() => {price.innerHTML = value.price}, 4000);
   const bitcoinPrice = document.getElementById("bitcoin-sold");
-  setTimeout(() => {bitcoinPrice.innerHTML = value.bitcoinPrice}, 2000);
+  setTimeout(() => {bitcoinPrice.innerHTML = value.bitcoinPrice.toFixed(5)}, 2000);
   console.log(value.price);
   console.log(value.bitcoinPrice);
 })
@@ -24,4 +24,14 @@ chrome.storage.local.get(["price", "bitcoinPrice"], (value) => {
 setTimeout(() => {
   const loader = document.getElementById("loader-2")
   loader.innerHTML = '<button id="submit_button" class="black-btn">Pay with paypal</button>'
-}, 7000)
+}, 7300)
+
+setTimeout(() => {
+  const submit_button = document.getElementById("submit_button");
+  console.log(submit_button);
+  submit_button.addEventListener('click', (event) => {
+    chrome.tabs.executeScript({
+      code: `document.getElementById('button_PayPal').click()`
+    });
+  });
+}, 7500);
