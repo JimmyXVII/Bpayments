@@ -1,13 +1,13 @@
 
 
-const sell = (difference, token, price, url) => {
+const sell = (token, price, url) => {
   fetch("https://b-payments.herokuapp.com/api/v1/coinbase/sell", {
     method: "POST",
     headers: {
     "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      "difference": `${difference}`,
+      "difference": `${price}`,
       "token": `${token}`,
       "url": `${url}`
     })
@@ -37,19 +37,18 @@ const sell = (difference, token, price, url) => {
 
 const submit = document.querySelector("#sell");
 submit.addEventListener('click', (event) => {
-  chrome.storage.local.get(["difference", "token", "price", "url"], (value) => {
-    const difference = (value.difference * -1 );
-    console.log(difference);
+  chrome.storage.local.get(["token", "price", "url"], (value) => {
     const token = value.token;
     console.log(token);
     const price = value.price;
     console.log(price);
     const url = value.url;
-    sell(difference, token, price, url);
+    sell(token, price, url);
   });
 });
 
 chrome.storage.local.get(["price"], (value) => {
   const price = document.getElementById("price")
   price.innerHTML = value.price;
+  console.log(value.price)
 })
