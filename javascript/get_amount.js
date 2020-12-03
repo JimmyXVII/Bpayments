@@ -99,7 +99,7 @@ const sell = (token, price, url) => {
           })
           .then(response => response.json())
           .then((data) => {
-            // window.location.replace('../popups/sell_and_withdraw.html');
+            window.location.replace('../popups/sell_and_withdraw.html');
           })
         } else {
         }
