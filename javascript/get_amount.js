@@ -45,6 +45,7 @@ const convert = (price) => {
     const rate = value.rate;
     console.log(rate)
     const bitcoinPrice = price / rate;
+    chrome.storage.local.set( {'bitcoinPrice': bitcoinPrice },() => {});
     console.log(bitcoinPrice);
     const convert = document.querySelector(".price-in-btc-balance");
     convert.innerHTML = (bitcoinPrice).toFixed(5);

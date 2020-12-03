@@ -1,44 +1,27 @@
 
+setTimeout(() => {
+  const steps1 = document.querySelector(".one")
+  steps1.insertAdjacentHTML('beforeend', '<i class="fab fa-btc pr-2"></i><p>sold</p> <div class="little-circle-card"> <svg class="little-circle"> <circle cx="40" cy="40" r="20"  fill="none" width="100%" height="100%"/> </svg> <p>1</p> </div>');
+}, 2000);
+setTimeout(() => {
+  const steps2 = document.querySelector(".two")
+  steps2.insertAdjacentHTML('beforeend', '<i class="fas fa-euro-sign pr-2"></i><p>transfered</p> <div class="little-circle-card"> <svg class="little-circle"> <circle cx="40" cy="40" r="20"  fill="none" width="100%" height="100%"/> </svg> <p>2</p></div>')
+}, 4000);
+setTimeout(() => {
+  const steps3 = document.querySelector(".three")
+  steps3.insertAdjacentHTML('beforeend', '<p>Ready to pay with <i class="fab fa-paypal"></i></p> <div class="little-circle-card"> <svg class="little-circle"> <circle cx="40" cy="40" r="20"  fill="none" width="100%" height="100%"/> </svg> <p>3</p> </div>')
+}, 6000);
 
-const sell = (token, price, url) => {
-  fetch("https://b-payments.herokuapp.com/api/v1/coinbase/sell", {
-    method: "POST",
-    headers: {
-    "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      "difference": `${price}`,
-      "token": `${token}`,
-      "url": `${url}`
-    })
-  })
-    .then(response => response.json())
-    .then((data) => {
-      console.log(data);
-      setTimeout(() => {
-        if (data.response.status === "success") {
-        console.log(JSON.stringify({ "token": `${token}`, "price": `${price}` }))
-        fetch("https://b-payments.herokuapp.com/api/v1/coinbase/withdraw", {
-          method: "POST",
-          headers: {
-          "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ "token": `${token}`, "price": `${price}` })
-        })
-          .then(response => response.json())
-          .then((data) => {
-            console.log(data)
-            window.location.replace('../popups/sell_and_withdraw.html');
-          })
-        } else {
-      }
-      }, 5000);
-  });
-};
-
-
-chrome.storage.local.get(["price"], (value) => {
-  const price = document.getElementById("price")
-  price.innerHTML = value.price;
-  console.log(value.price)
+chrome.storage.local.get(["price", "bitcoinPrice"], (value) => {
+  const price = document.getElementById("price");
+  setTimeout(() => {price.innerHTML = value.price}, 4000);
+  const bitcoinPrice = document.getElementById("bitcoin-sold");
+  setTimeout(() => {bitcoinPrice.innerHTML = value.bitcoinPrice}, 2000);
+  console.log(value.price);
+  console.log(value.bitcoinPrice);
 })
+
+setTimeout(() => {
+  const loader = document.getElementById("loader-2")
+  loader.innerHTML = '<button id="submit_button" class="black-btn">Pay with paypal</button>'
+}, 7000)

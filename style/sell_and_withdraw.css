@@ -16,9 +16,15 @@
   position: relative;
 }
 
+.value {
+  font-size: 20px;
+  font-family: 'Red Hat Text';
+  font-weight: bolder;
+}
+
 .steps {
   width: 280px;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 
