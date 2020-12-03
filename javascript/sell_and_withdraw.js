@@ -36,14 +36,9 @@ const sell = (token, price, url) => {
   });
 };
 
-const submit = document.querySelector("#sell");
-submit.addEventListener('click', (event) => {
-  chrome.storage.local.get(["token", "price", "url"], (value) => {
-    const token = value.token;
-    console.log(token);
-    const price = value.price;
-    console.log(price);
-    const url = value.url;
-    sell(token, price, url);
-  });
-});
+
+chrome.storage.local.get(["price"], (value) => {
+  const price = document.getElementById("price")
+  price.innerHTML = value.price;
+  console.log(value.price)
+})

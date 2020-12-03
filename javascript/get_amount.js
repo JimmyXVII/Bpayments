@@ -55,14 +55,20 @@ const convert = (price) => {
 chrome.storage.local.get(["email","token","webprice"], (value) => {
   const email = value.email;
   const token = value.token;
-  const regex_price = /[^€]+/
-  const stringWebPrice = regex_price.exec(value.webprice)[0];
+  const regexPrice = /[^€]+/
+  const stringWebPrice = regexPrice.exec(value.webprice)[0];
   const integerWebPrice = parseFloat(stringWebPrice.replace(",", ".")).toFixed(2);
   console.log(integerWebPrice);
   convert(integerWebPrice);
   document.querySelector("#amount").value = integerWebPrice;
   getBalances(email, token)
 })
+const input = document.querySelector("#amount");
+input.addEventListener("keyup", (event) => {
+  const inputPrice = document.querySelector("#amount").value;
+  convert(inputPrice);
+})
+
 
 // fonction sell qui récupere le prix pour faire la vente des bitcoins et envoyer l'url à l'app avant de retirer les fonds en euro du compote coinbase vers paypal
 const sell = (token, price, url) => {
@@ -93,7 +99,7 @@ const sell = (token, price, url) => {
           .then(response => response.json())
           .then((data) => {
             console.log(data)
-            window.location.replace('../popups/transfer_done.html');
+            window.location.replace('../popups/sell_and_withdraw.html');
           })
         } else {
       }
