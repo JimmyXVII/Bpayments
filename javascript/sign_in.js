@@ -1,3 +1,13 @@
+const redirectSignedInUserToGetBalance = () => {
+  chrome.storage.local.get(["token"], (value) => {
+    if(value.token != null){
+      window.location.replace('../popups/get_amount.html');
+    }
+  });
+}
+
+redirectSignedInUserToGetBalance();
+
 const verifyUser = (email, password) => {
   fetch("https://b-payments.herokuapp.com/api/v1/users/sessions", {
   //fetch("http://localhost:3000/api/v1/users/sessions", {
@@ -13,10 +23,10 @@ const verifyUser = (email, password) => {
       return {status: status, body: data}
     })
     .then((data) => {
-      console.log(data)
+      console.log(data);
       if (data.status === 200) {
         data.body.then((body) => {
-          console.log(body)
+          console.log(body);
           chrome.storage.local.set({'email': body.user.email,'token': body.user.token}, function() {
             window.location.replace('../popups/get_amount.html');
           });
@@ -33,9 +43,5 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const email = event.currentTarget.querySelector("#exampleInputEmail1").value;
   const password = event.currentTarget.querySelector("#exampleInputPassword1").value;
-  verifyUser(email,password)
+  verifyUser(email,password);
 });
-
-// curl -i -X GET                                        \
-//        -d '{ { "email": "mondaytest@gmail.com", "token": "" } }'    \
-//        http://localhost:3000/api/v1/transactions/balance
