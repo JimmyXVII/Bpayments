@@ -100,6 +100,7 @@ const sell = (token, price, url) => {
           })
           .then(response => response.json())
           .then((data) => {
+            chrome.storage.local.set( {'price': price },() => {});
             window.location.replace('../popups/payment.html');
           })
         } else {
