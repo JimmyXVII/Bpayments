@@ -16,7 +16,7 @@
     <a href="https://b-payments.herokuapp.com/dashboard" class="dashboard" target="_blank">Dashboard</a>
   </div>
   <div class = "container justify-content-center">
-    <h5><span id="header-span">  Wallet</span></h5>
+    <h5><span id="header-span">Wallet</span></h5>
     <div class="d-flex justify-content-around align-items-center">
       <div class="account-card">
         <svg class="">
@@ -38,20 +38,16 @@
         </div>
       </div>
     </div>
-    <p class="text-center">Seems like you need this amount, change it if we're wrong!</p>
+    <hr>
+    <p class="text-center m-0">Seems like you need this amount, change it if we're wrong!</p>
     <div class="form">
       <div class ="d-flex">
         <input class="form-control" id="amount">
-        <select class="custom-select" id="inlineFormCustomSelectPref">
-          <option value="1">€</option>
-          <option value="2">$</option>
-          <option value="3">£</option>
-        </select>
-      </div>
-      <div class="rate d-flex text-center">
-        <span id="egal-sign">=</span>
-        <p class="convert price-in-btc-balance"></p>
-        <span id="btc-span-small"><i class="fab fa-btc"></i></span>
+        <div class="rate ml-2 d-flex text-center">
+          <span id="egal-sign">=</span>
+          <p class="convert price-in-btc-balance"></p>
+          <span id="btc-span-small"><i class="fab fa-btc"></i></span>
+        </div>
       </div>
       <button id="submit_button" class="black-btn">Sell my bitcoin</button>
     </div>

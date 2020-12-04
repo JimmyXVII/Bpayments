@@ -4,10 +4,6 @@
   justify-content: center;
 }
 
-#inlineFormCustomSelectPref{
-  width:50px;
-}
-
 h5 {
   font-family: 'Red Hat Display' !important;
   font-size: 30px !important;
@@ -18,7 +14,8 @@ h5 {
 #header-span {
   color: white;
   background-color: black;
-  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .account-card {
@@ -41,14 +38,14 @@ h5 {
 
 .balance {
   font-size: 25px;
-  font-weight: 700;
+  /* font-weight: 700; */
   margin: 0;
   z-index: 2;
 }
 
 #euro-span {
   font-size: 25px;
-  font-weight: 700;
+  /* font-weight: 700; */
   margin-left: 2px;
   z-index: 2;
   font-family: 'Red Hat Text';
@@ -66,14 +63,14 @@ h5 {
 
 #egal-sign {
   font-size: 14px;
-  font-weight: 700;
+  /* font-weight: 700; */
   margin: 0;
   margin-right: 4px;
 }
 
 #egal-sign-circle {
   font-size: 14px;
-  font-weight: 700;
+  /* font-weight: 700; */
   margin: 0;
 }
 
@@ -87,7 +84,7 @@ h5 {
 
 #btc-span {
   font-size: 25px;
-  font-weight: 700;
+  /* font-weight: 700; */
   margin-left: 2px;
   z-index: 2;
   font-family: 'Red Hat Text';
@@ -102,19 +99,15 @@ h5 {
 }
 
 .white-circle {
-  fill: rgba(255, 255, 255, 0.653);
+  /* fill: rgba(255, 255, 255, 0.653); */
   stroke: white;
-  /* stroke-width: 4; */
   stroke-dasharray: 422, 0;
-  /* transition: all 1.5s linear; */
   z-index: 1;
   stroke-width: 5;
   stroke-dashoffset: 48;
   transition: all 2.35s linear;
   transition-duration: 1s;
 }
-
-/* cubic-bezier(0.19, 1, 0.22, 1) */
 
 .white-circle-starts {
   stroke-dasharray: 75, 310;
