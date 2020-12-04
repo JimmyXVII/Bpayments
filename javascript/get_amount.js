@@ -118,4 +118,11 @@ submit.addEventListener('click', (event) => {
   });
 });
 
+const signout = document.querySelector(".signout")
+signout.addEventListener('click', (event) => {
+  chrome.storage.local.set( { 'token': null }, () => {
+    window.location.replace('../popups/sign_in.html')
+  });
+});
+
 
