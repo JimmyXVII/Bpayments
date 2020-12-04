@@ -34,7 +34,7 @@ const getBalances = (email, token) => {
 fetch("https://api.coinbase.com/v2/prices/BTC-EUR/sell")
 .then(response => response.json() )
 .then((data) => {
-  console.log(data)
+  console.log(data);
   chrome.storage.local.set( { 'rate': parseFloat(data.data.amount) }, () => {
     console.log("coucou");
   })
@@ -44,7 +44,7 @@ fetch("https://api.coinbase.com/v2/prices/BTC-EUR/sell")
 const convert = (price) => {
   chrome.storage.local.get(['rate'], (value) => {
     const rate = value.rate;
-    console.log(rate)
+    console.log(rate);
     const bitcoinPrice = price / rate;
     chrome.storage.local.set( {'bitcoinPrice': bitcoinPrice },() => {});
     console.log(bitcoinPrice);
@@ -57,13 +57,13 @@ const convert = (price) => {
 chrome.storage.local.get(["email","token","webprice"], (value) => {
   const email = value.email;
   const token = value.token;
-  const regexPrice = /[^€]+/
+  const regexPrice = /[^€]+/;
   const stringWebPrice = regexPrice.exec(value.webprice)[0];
   const integerWebPrice = parseFloat(stringWebPrice.replace(",", ".")).toFixed(2);
   console.log(integerWebPrice);
   convert(integerWebPrice);
   document.querySelector("#amount").value = integerWebPrice;
-  getBalances(email, token)
+  getBalances(email, token);
 })
 const input = document.querySelector("#amount");
 input.addEventListener("keyup", (event) => {
@@ -88,10 +88,6 @@ const sell = (token, price, url) => {
     .then((data) => {
       setTimeout(() => {
         if (data.response.status === "success") {
-          console.log("Price")
-          console.log(price)
-          console.log("Token")
-          console.log(token)          
           fetch("https://b-payments.herokuapp.com/api/v1/coinbase/withdraw", {
           //fetch("http://localhost:3000/api/v1/coinbase/withdraw", {
             method: "POST",
