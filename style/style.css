@@ -64,3 +64,13 @@ a:hover {
 .dashboard:hover {
   color: rgba(0,0,0,1);
 }
+
+.signout{
+  color: rgba(0,0,0,0.5);
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+.signout:hover {
+  color: rgba(0,0,0,1);
+}
